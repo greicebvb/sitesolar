@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DNT Energia Solar</title>
+<meta name="description" content="DNT Energia Solar: projeto, instalação e acompanhamento de energia solar residencial, comercial, industrial e rural em Corupá, Jaraguá do Sul, Joinville e região.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: cabeçalho com a logo, capa em largura total, depois faixas alternando branco e azul da marca */
+:root {
+  --blue: #000a8c;
+  --blue-deep: #00065e;
+  --yellow: #ffce07;
+  --white: #ffffff;
+  --tint: #eef1fb;
+  --ink: #0b1230;
+  --ink-soft: #46506e;
+  --line: #d5daef;
+  --display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--white); }
+body { margin: 0; background: var(--white); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.1; margin: 0; text-wrap: balance; letter-spacing: -0.02em; }
+p { margin: 0; }
+a { color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+/* Cabeçalho */
+header { background: var(--white); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 5; }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; }
+.brand img { height: 46px; width: auto; }
+.nav { display: flex; align-items: center; gap: 22px; }
+.nav a.link { text-decoration: none; font-weight: 500; font-size: 15px; color: var(--ink-soft); }
+.nav a.link:hover { color: var(--blue); }
+
+/* Botões */
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 24px; border-radius: 999px; background: var(--yellow); color: var(--blue-deep); font-weight: 600; font-size: 16px; text-decoration: none; border: 0; cursor: pointer; font-family: var(--body); transition: transform .15s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn.small { min-height: 40px; padding: 0 18px; font-size: 14px; }
+.btn.blue { background: var(--blue); color: var(--white); }
+.btn.ghost { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } html { scroll-behavior: auto; } }
+
+/* Capa */
+.cover { background: var(--blue-deep); }
+.cover img { width: 100%; max-width: 1400px; margin: 0 auto; }
+
+/* Apresentação */
+.intro { padding: 48px 0 56px; }
+.tag { display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); background: var(--yellow); padding: 4px 12px; border-radius: 999px; margin-bottom: 16px; }
+h1 { font-size: clamp(34px, 6vw, 60px); font-weight: 800; color: var(--blue); max-width: 18ch; }
+.lead { margin-top: 18px; font-size: 19px; color: var(--ink-soft); max-width: 54ch; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.types { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+.types span { border: 1.5px solid var(--line); border-radius: 999px; padding: 6px 16px; font-weight: 600; font-size: 15px; color: var(--blue); }
+
+/* Seções */
+section { padding: 60px 0; }
+section.tint { background: var(--tint); }
+section.dark { background: var(--blue); color: var(--white); }
+h2 { font-size: clamp(28px, 4.4vw, 42px); font-weight: 700; color: var(--blue); }
+section.dark h2 { color: var(--white); }
+.sec-intro { margin-top: 12px; color: var(--ink-soft); max-width: 58ch; }
+section.dark .sec-intro { color: #cdd3ff; }
+
+/* Serviços */
+.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 30px; }
+.card { background: var(--white); border: 1px solid var(--line); border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 8px; }
+.card .ico { width: 46px; height: 46px; border-radius: 12px; background: var(--blue); display: grid; place-items: center; margin-bottom: 6px; }
+.card .ico svg { width: 24px; height: 24px; stroke: var(--yellow); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.card h3 { font-size: 22px; font-weight: 700; color: var(--blue); }
+.card p { color: var(--ink-soft); font-size: 16px; }
+
+/* Faixa de foto */
+.photo-band img { width: 100%; max-height: 460px; object-fit: cover; }
+
+/* Galeria de obras */
+.obras-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 28px; }
+.obra { padding: 0; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--blue-deep); cursor: zoom-in; transition: transform .15s ease; }
+.obra:hover { transform: translateY(-3px); }
+.obra img { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; }
+.lightbox { position: fixed; inset: 0; z-index: 20; background: rgba(0, 6, 40, 0.92); display: flex; align-items: center; justify-content: center; padding: 56px 16px 16px; }
+.lightbox[hidden] { display: none; }
+.lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px; }
+.lb-close { position: absolute; top: 12px; right: 12px; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 0; background: var(--yellow); color: var(--blue-deep); font: 600 15px var(--body); cursor: pointer; }
+@media (max-width: 760px) { .obras-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+@media (prefers-reduced-motion: reduce) { .obra { transition: none; } }
+
+/* Instagram */
+.insta-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 28px; }
+.insta-grid a { display: block; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: var(--white); transition: transform .15s ease; }
+.insta-grid a:hover { transform: translateY(-3px); }
+.insta-grid img { width: 100%; aspect-ratio: 4 / 4.5; object-fit: cover; }
+@media (max-width: 760px) { .insta-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (prefers-reduced-motion: reduce) { .insta-grid a { transition: none; } }
+
+/* Passos */
+.steps { list-style: none; margin: 30px 0 0; padding: 0; counter-reset: passo; }
+.steps li { counter-increment: passo; display: grid; grid-template-columns: 56px 1fr; gap: 16px; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.22); }
+.steps li:last-child { border-bottom: 1px solid rgba(255,255,255,0.22); }
+.steps li::before { content: counter(passo); font-family: var(--display); font-weight: 800; font-size: 40px; line-height: 1; color: var(--yellow); }
+.steps h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+.steps p { color: #cdd3ff; font-size: 16px; }
+
+/* Região */
+.cities { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.chip { background: var(--white); border: 1.5px solid var(--line); border-radius: 999px; padding: 10px 20px; font-weight: 600; color: var(--blue); }
+.chip.main { background: var(--blue); border-color: var(--blue); color: var(--white); }
+
+/* Contato */
+.contact { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+.form { background: var(--white); color: var(--ink); border-radius: 20px; padding: 24px; display: grid; gap: 16px; }
+label { display: grid; gap: 6px; font-weight: 600; font-size: 15px; }
+input, select { font: inherit; font-weight: 400; min-height: 48px; padding: 0 14px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--white); color: var(--ink); width: 100%; }
+.hint { font-size: 14px; color: var(--ink-soft); font-weight: 400; }
+
+/* Rodapé */
+footer { background: var(--blue-deep); color: #cdd3ff; padding: 28px 0 36px; font-size: 15px; }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  .contact, .cards { grid-template-columns: 1fr; }
+  .nav a.link { display: none; }
+  .brand img { height: 40px; }
+  .intro { padding-top: 32px; }
+  section { padding: 44px 0; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#inicio" aria-label="DNT Energia Solar, início"><img src="img/logo.png" alt="DNT Energia Solar" width="110" height="46"></a>
+    <nav class="nav" aria-label="Principal">
+      <a class="link" href="#servicos">Serviços</a>
+      <a class="link" href="#como-funciona">Como funciona</a>
+      <a class="link" href="#regiao">Região</a>
+      <a class="btn small js-wa" href="#contato">WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="cover">
+    <img src="img/capa.jpg" alt="DNT Energia Solar, 5 anos de experiência. Painéis solares no telhado ao nascer do sol, atendendo Corupá, Jaraguá, Joinville e toda a região Norte de Santa Catarina." width="1080" height="450">
+  </div>
+
+  <section class="intro">
+    <div class="wrap">
+      <span class="tag">5 anos de experiência</span>
+      <h1>Transformamos energia do sol em economia para você.</h1>
+      <p class="lead">A DNT faz o projeto, instala e acompanha o seu sistema solar. Você fala direto com quem cuida da obra, da conta de luz até o último painel.</p>
+      <div class="cta">
+        <a class="btn js-wa" href="#contato">Pedir um orçamento</a>
+        <a class="btn ghost" href="#como-funciona">Ver como funciona</a>
+      </div>
+      <div class="types" aria-label="Tipos de projeto">
+        <span>Residencial</span><span>Comercial</span><span>Industrial</span><span>Rural</span><span>Usinas de investimento</span><span>Grande porte</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="tint" id="servicos">
+    <div class="wrap">
+      <h2>O que a DNT faz por você</h2>
+      <p class="sec-intro">Casas, sítios, comércios, indústrias, usinas de investimento e projetos de grande porte. Do primeiro cálculo à energia gerada.</p>
+      <div class="cards">
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 6h16l-2 9H6zM12 15v4M8 19h8M9 6l-1 9M15 6l1 9M5 10.5h14"/></svg></div>
+          <h3>Instalação de energia solar</h3>
+          <p>Sistemas fotovoltaicos para residências, propriedades rurais, comércios e indústrias, além de usinas de investimento e projetos de grande porte, com execução técnica feita pela nossa equipe.</p>
+        </article>
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5"/></svg></div>
+          <h3>Projeto e proposta de retorno</h3>
+          <p>Você recebe a proposta com o retorno do investimento calculado a partir do seu consumo, antes de decidir qualquer coisa.</p>
+        </article>
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 4 8-9M15 7h5v5"/></svg></div>
+          <h3>Análise da fatura de energia</h3>
+          <p>Conferimos a sua fatura da Celesc e explicamos consumo, geração e injeção para você entender o que está pagando.</p>
+        </article>
+        <article class="card">
+          <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h4"/></svg></div>
+          <h3>Opções de financiamento</h3>
+          <p>Simulamos o parcelamento do seu projeto em instituições financeiras parceiras e mostramos as opções lado a lado.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="obras">
+    <div class="wrap">
+      <h2>Instalações entregues</h2>
+      <p class="sec-intro">Alguns projetos da DNT, de uma casa a uma indústria. Toque numa foto para ampliar.</p>
+      <div class="obras-grid">
+        <button class="obra" type="button" data-src="img/obra1.jpg" data-alt="Instalação da DNT na Palazzo, em Corupá: 160 placas e inversor de 60K"><img src="img/obra1.jpg" alt="Instalação da DNT na Palazzo, em Corupá: 160 placas e inversor de 60K" loading="lazy"></button>
+        <button class="obra" type="button" data-src="img/obra2.jpg" data-alt="Obra concluída na paróquia de Joinville: 28 módulos e inversor de 15K"><img src="img/obra2.jpg" alt="Obra concluída na paróquia de Joinville: 28 módulos e inversor de 15K" loading="lazy"></button>
+        <button class="obra" type="button" data-src="img/obra3.jpg" data-alt="Instalação residencial em Jaraguá do Sul: 20 placas, sistema bifásico e dois inversores de 5K"><img src="img/obra3.jpg" alt="Instalação residencial em Jaraguá do Sul: 20 placas, sistema bifásico e dois inversores de 5K" loading="lazy"></button>
+        <button class="obra" type="button" data-src="img/obra4.jpg" data-alt="Instalação em Guaramirim: 5 placas e inversor de 4K"><img src="img/obra4.jpg" alt="Instalação em Guaramirim: 5 placas e inversor de 4K" loading="lazy"></button>
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lb-close" type="button" id="lb-close" aria-label="Fechar foto">Fechar</button>
+    <img id="lb-img" src="" alt="">
+  </div>
+
+  <section class="dark" id="como-funciona">
+    <div class="wrap">
+      <h2>Como funciona, passo a passo</h2>
+      <p class="sec-intro">Você sabe em que etapa está e o que vem a seguir.</p>
+      <ol class="steps">
+        <li><div><h3>Conversa e fatura</h3><p>Você nos manda a fatura de luz e conta o que precisa. Com isso, entendemos o seu consumo.</p></div></li>
+        <li><div><h3>Proposta clara</h3><p>Recebemos o orçamento com o sistema indicado, o valor e o retorno do investimento, tudo explicado de forma simples.</p></div></li>
+        <li><div><h3>Projeto e aprovação</h3><p>Cuidamos do projeto e do protocolo junto à distribuidora de energia.</p></div></li>
+        <li><div><h3>Instalação</h3><p>Nossa equipe instala os painéis e o inversor na sua casa, sítio, empresa ou indústria.</p></div></li>
+        <li><div><h3>Acompanhamento</h3><p>Depois de ligado, olhamos junto com você a geração e as faturas para confirmar que o sistema está rendendo.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="regiao">
+    <div class="wrap">
+      <h2>Onde atendemos</h2>
+      <p class="sec-intro">Atendimento presencial em toda a região Norte de Santa Catarina.</p>
+      <div class="cities">
+        <span class="chip main">Corupá</span>
+        <span class="chip main">Jaraguá do Sul</span>
+        <span class="chip main">Joinville</span>
+        <span class="chip main">Guaramirim</span>
+        <span class="chip">Toda a região Norte de SC</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="tint" id="instagram">
+    <div class="wrap">
+      <h2>Acompanhe a DNT no Instagram</h2>
+      <p class="sec-intro">Dicas de economia, novidades e projetos entregues. Toque em uma imagem para abrir o nosso perfil.</p>
+      <div class="insta-grid">
+        <a href="https://www.instagram.com/dnt.energiasolar/" aria-label="Abrir o Instagram da DNT"><img src="img/insta1.jpg" alt="Postagem da DNT: o telhado da empresa pode pagar a conta" loading="lazy"></a>
+        <a href="https://www.instagram.com/dnt.energiasolar/" aria-label="Abrir o Instagram da DNT"><img src="img/insta2.jpg" alt="Postagem da DNT: simule sua economia" loading="lazy"></a>
+        <a href="https://www.instagram.com/dnt.energiasolar/" aria-label="Abrir o Instagram da DNT"><img src="img/insta3.jpg" alt="Postagem da DNT: parcela do financiamento termina, conta de energia nunca" loading="lazy"></a>
+        <a href="https://www.instagram.com/dnt.energiasolar/" aria-label="Abrir o Instagram da DNT"><img src="img/insta4.jpg" alt="Postagem da DNT: a energia elétrica é um cassino que você nunca ganha" loading="lazy"></a>
+      </div>
+      <div class="cta">
+        <a class="btn blue" href="https://www.instagram.com/dnt.energiasolar/">Seguir @dnt.energiasolar</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark" id="contato">
+    <div class="wrap contact">
+      <div>
+        <h2>Peça o seu orçamento</h2>
+        <p class="sec-intro">Preencha os dados ao lado e o WhatsApp da DNT abre com a mensagem pronta. É só enviar.</p>
+      </div>
+      <form class="form" id="form" novalidate>
+        <label for="nome">Seu nome
+          <input id="nome" type="text" autocomplete="name" placeholder="Como podemos te chamar?">
+        </label>
+        <label for="cidade">Sua cidade
+          <select id="cidade">
+            <option>Corupá</option>
+            <option>Jaraguá do Sul</option>
+            <option>Joinville</option>
+            <option>Guaramirim</option>
+            <option>Outra cidade</option>
+          </select>
+        </label>
+        <label for="conta">Valor médio da conta de luz (R$)
+          <input id="conta" type="number" inputmode="decimal" min="0" placeholder="Ex.: 450">
+          <span class="hint">Se souber, ajuda a gente a preparar a proposta.</span>
+        </label>
+        <a class="btn" id="enviar" href="#contato">Enviar pelo WhatsApp</a>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>DNT Energia Solar Ltda</span>
+    <span>WhatsApp (47) 99635-9668 · Corupá e Jaraguá do Sul, SC</span>
+  </div>
+</footer>
+
+<script>
+  // Número do WhatsApp da DNT, com código do país e DDD, só dígitos.
+  var WHATSAPP = "5547996359668";
+
+  var nome = document.getElementById("nome");
+  var cidade = document.getElementById("cidade");
+  var conta = document.getElementById("conta");
+  var enviar = document.getElementById("enviar");
+
+  function link(texto) { return "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(texto); }
+
+  function atualizar() {
+    var partes = ["Olá! Gostaria de um orçamento de energia solar."];
+    if (nome.value.trim()) partes.push("Meu nome é " + nome.value.trim() + ".");
+    partes.push("Sou de " + cidade.value + ".");
+    if (conta.value) partes.push("Minha conta de luz fica em torno de R$ " + conta.value + " por mês.");
+    enviar.href = link(partes.join(" "));
+  }
+  [nome, cidade, conta].forEach(function (el) { el.addEventListener("input", atualizar); });
+  document.getElementById("form").addEventListener("submit", function (e) { e.preventDefault(); });
+  atualizar();
+
+  // Galeria de obras: toque para ampliar
+  var lightbox = document.getElementById("lightbox");
+  var lbImg = document.getElementById("lb-img");
+  function abrir(src, alt) { lbImg.src = src; lbImg.alt = alt; lightbox.hidden = false; document.getElementById("lb-close").focus(); }
+  function fechar() { lightbox.hidden = true; lbImg.src = ""; }
+  document.querySelectorAll(".obra").forEach(function (b) {
+    b.addEventListener("click", function () { abrir(b.dataset.src, b.dataset.alt); });
+  });
+  lightbox.addEventListener("click", function (e) { if (e.target !== lbImg) fechar(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !lightbox.hidden) fechar(); });
+
+  // Botões de WhatsApp do cabeçalho e da apresentação
+  document.querySelectorAll(".js-wa").forEach(function (a) {
+    a.href = link("Olá! Gostaria de um orçamento de energia solar.");
+  });
+</script>
+</body>
+</html>
